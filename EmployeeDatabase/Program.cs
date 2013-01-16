@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using EmployeeDatabase.Controllers;
 
 namespace EmployeeDatabase
 {
@@ -15,7 +16,12 @@ namespace EmployeeDatabase
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Employee());
+
+            Employee employeeView = new Employee();
+            EmployeeController employeeController = new EmployeeController(employeeView);
+
+            employeeController.LoadEmployeeView();
+            Application.Run(employeeView);
         }
     }
 }
