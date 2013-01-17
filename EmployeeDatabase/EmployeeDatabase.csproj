@@ -68,6 +68,7 @@
     <EmbeddedResource Include="Views\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\MDialogo_DB.Data.HR_Employee.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

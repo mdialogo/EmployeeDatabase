@@ -9,18 +9,31 @@ namespace MDialogo_DB.DAL
 {
     internal class EmployeeDAO
     {
-        public EmployeeDataContext EmployeeDB { get; set; }
+        internal EmployeeDataContext EmployeeDB { get; set; }
 
-        public EmployeeDAO()
+        internal EmployeeDAO()
         {
             EmployeeDB = new EmployeeDataContext(Settings.Default.MDialogo_DBConnectionString2);
         }
 
-        public List<HR_Employee> GetAllEmployees()
+        internal List<HR_Employee> GetAllEmployees()
         {
             var query = from e in EmployeeDB.HR_Employees
                         select e;
             return query.ToList();
+        }
+
+        internal bool Commit()
+        {
+            try
+            {
+                EmployeeDB.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -9,10 +9,16 @@ namespace MDialogo_DB.BPL
 {
     public class EmployeeBPO
     {
+        private EmployeeDAO dao = new EmployeeDAO();
+
         public List<HR_Employee> GetAllEmployees()
         {
-            EmployeeDAO dao = new EmployeeDAO();
             return dao.GetAllEmployees();
+        }
+
+        public bool CommitChangesToDB()
+        {
+            return dao.Commit();
         }
     }
 }

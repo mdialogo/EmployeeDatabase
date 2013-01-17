@@ -17,6 +17,7 @@ namespace EmployeeDatabase
         public Employee()
         {
             InitializeComponent();
+            this.gridEmployee.AutoGenerateColumns = true;
         }
 
         #region IEmployee implementation
@@ -27,9 +28,14 @@ namespace EmployeeDatabase
 
         public void SetupGrid(object src)
         {
-            //this.employeeBindingSource.DataSource = src;
-            this.gridEmployee.DataSource = src;
+            this.hR_EmployeeBindingSource.DataSource = src;
         }
         #endregion
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            this.hR_EmployeeBindingSource.EndEdit();
+            _employeeController.CommitChangesToDB();
+        }
     }
 }
